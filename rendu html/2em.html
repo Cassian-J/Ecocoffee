@@ -3,89 +3,493 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Produits - Ecocoffee</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Ecocoffee - Nos Produits</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+
+        body {
+            background-color: #f8f3ed;
+            color: #000;
+            font-size: 16px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: sans-serif;
+            font-weight: 700;
+        }
+
+        /* Colors from style guide */
+        :root {
+            --green: #a1c18b;
+            --cream: #eee3db;
+            --brown: #684b38;
+            --black: #010101;
+            --tan: #a77a4f;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            padding: 0 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('/api/placeholder/750/1334') center center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 0 1.5rem;
+        }
+
+        .hero-tagline {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            transform: rotate(-5deg);
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            background-color: var(--brown);
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 5px 10px;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--green);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #8db079;
+            transform: translateY(-2px);
+        }
+
+        .btn-icon {
+            margin-left: 0.5rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 3rem 0;
+            background-color: #f8f3ed;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #000;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-name {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--brown);
+        }
+
+        .product-description {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            margin-top: auto;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--brown);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-info {
+            max-width: 100%;
+        }
+
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--green);
+        }
+
+        .contact-details {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-image {
+            width: 100%;
+            height: auto;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Viewport size indicators */
+        .viewport-indicator {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
+        .mobile-only {
+            display: block;
+        }
+        
+        .tablet-only {
+            display: none;
+        }
+        
+        .desktop-only {
+            display: none;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (min-width: 768px) {
+            .mobile-only {
+                display: none;
+            }
+            
+            .tablet-only {
+                display: block;
+            }
+            
+            .desktop-only {
+                display: none;
+            }
+
+            .hero {
+                height: 55vh;
+                background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('/api/placeholder/1024/768') center center/cover no-repeat;
+            }
+
+            .hero-content {
+                max-width: 800px;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+                top: -40px;
+                left: 0;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .product-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .product-description {
+                font-size: 0.9rem;
+            }
+
+            .product-name {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-only {
+                display: none;
+            }
+            
+            .tablet-only {
+                display: none;
+            }
+            
+            .desktop-only {
+                display: block;
+            }
+
+            .hero {
+                height: 60vh;
+                background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('/api/placeholder/1920/1080') center center/cover no-repeat;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .contact-info {
+                max-width: 300px;
+            }
+
+            .contact-image {
+                width: 300px;
+                margin-top: 0;
+            }
+
+            .products {
+                padding: 5rem 0;
+            }
+
+            .product-image {
+                height: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="hero">
+    <!-- Viewport size indicator -->
+    <div class="viewport-indicator">
+        <span class="mobile-only">Vue Mobile</span>
+        <span class="tablet-only">Vue Tablette</span>
+        <span class="desktop-only">Vue Desktop</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="hero-content">
             <p class="hero-tagline">Du café chaud et écolo !</p>
-            <h1>Ecocoffee</h1>
+            <h1 class="hero-title">Ecocoffee</h1>
             <p class="hero-subtitle">Café issu du commerce équitable et écoresponsable !</p>
-            <a href="index.html" class="btn-primary">Accueil</a>
+            <a href="#" class="btn">
+                Accueil
+                <span class="btn-icon">→</span>
+            </a>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <section class="products-page">
-            <h2>Nos produits :</h2>
-            <div class="products-grid">
-                <article class="product-card">
-                    <img src="images/selection-pur.jpg" alt="Café Moulu Sélection Pur Arabica Bio">
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <h2 class="product-title">Nos produits :</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="/api/placeholder/400/400" alt="Café Moulu Sélection Pur Arabica Bio" class="product-image">
                     <div class="product-info">
-                        <h3>Café Moulu Sélection Pur Arabica Bio</h3>
-                        <p class="product-weight">(250 g)</p>
+                        <h3 class="product-name">Café Moulu Sélection Pur Arabica Bio (250 g)</h3>
+                        <p class="product-description">Une sélection premium de grains d'arabica biologiques pour un café riche en saveurs.</p>
                         <p class="product-price">5.40€</p>
                     </div>
-                </article>
-
-                <article class="product-card">
-                    <img src="images/guatemala-pur.jpg" alt="Café Moulu Guatemala Pur Arabica Bio Équitable">
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/400/400" alt="Café Moulu Guatemala Pur Arabica Bio Équitable" class="product-image">
                     <div class="product-info">
-                        <h3>Café Moulu Guatemala Pur Arabica Bio Équitable</h3>
-                        <p class="product-weight">(250 g)</p>
+                        <h3 class="product-name">Café Moulu Guatemala Pur Arabica Bio Équitable (250 g)</h3>
+                        <p class="product-description">Café aux notes chocolatées et fruitées des montagnes du Guatemala.</p>
                         <p class="product-price">7.40€</p>
                     </div>
-                </article>
-
-                <article class="product-card">
-                    <img src="images/honduras-pur.jpg" alt="Café Moulu Honduras Pur Arabica Bio Équitable">
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/400/400" alt="Café Moulu Honduras Pur Arabica Bio Équitable" class="product-image">
                     <div class="product-info">
-                        <h3>Café Moulu Honduras Pur Arabica Bio Équitable</h3>
-                        <p class="product-weight">(250 g)</p>
+                        <h3 class="product-name">Café Moulu Honduras Pur Arabica Bio Équitable (250 g)</h3>
+                        <p class="product-description">Café doux et léger aux notes de caramel et de noisette.</p>
                         <p class="product-price">6.40€</p>
                     </div>
-                </article>
-
-                <article class="product-card">
-                    <img src="images/colombie-pur.jpg" alt="Café Moulu Colombie Pur Arabica Bio Équitable">
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/400/400" alt="Café Moulu Colombie Pur Arabica Bio Équitable" class="product-image">
                     <div class="product-info">
-                        <h3>Café Moulu Colombie Pur Arabica Bio Équitable</h3>
-                        <p class="product-weight">(250 g)</p>
+                        <h3 class="product-name">Café Moulu Colombie Pur Arabica Bio Équitable (250 g)</h3>
+                        <p class="product-description">Café équilibré aux notes d'agrumes et de fruits rouges de Colombie.</p>
                         <p class="product-price">7€</p>
                     </div>
-                </article>
-
-                <article class="product-card">
-                    <img src="images/mexique-pur.jpg" alt="Café Moulu Mexique Pur Arabica Bio Équitable">
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/400/400" alt="Café Moulu Mexique Pur Arabica Bio Équitable" class="product-image">
                     <div class="product-info">
-                        <h3>Café Moulu Mexique Pur Arabica Bio Équitable</h3>
-                        <p class="product-weight">(250 g)</p>
+                        <h3 class="product-name">Café Moulu Mexique Pur Arabica Bio Équitable (250 g)</h3>
+                        <p class="product-description">Café corsé aux notes épicées et boisées du Mexique.</p>
                         <p class="product-price">6.30€</p>
                     </div>
-                </article>
-
-                <article class="product-card">
-                    <img src="images/decafeine-pur.jpg" alt="Café Moulu Décaféiné Pur Arabica Bio">
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/400/400" alt="Café Moulu Décaféiné Pur Arabica Bio" class="product-image">
                     <div class="product-info">
-                        <h3>Café Moulu Décaféiné Pur Arabica Bio</h3>
-                        <p class="product-weight">(250 g)</p>
+                        <h3 class="product-name">Café Moulu Décaféiné Pur Arabica Bio (250 g)</h3>
+                        <p class="product-description">Tout le goût d'un excellent café sans caféine, décaféiné naturellement.</p>
                         <p class="product-price">6.40€</p>
                     </div>
-                </article>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="contact">
-            <h2>Contact :</h2>
-            <div class="contact-info">
-                <p>123 Anywhere St., Any City, ST 12345</p>
-                <p>123-456-7890</p>
-                <p>hello@reallygreasite.com</p>
-                <p>@reallygreasite</p>
-                <p>Visit our coffee house today!</p>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <h3 class="footer-title">Contact :</h3>
+                    <p class="contact-details">123 Anywhere St., Any City, ST 12345</p>
+                    <p class="contact-details">123-456-7890</p>
+                    <p class="contact-details">hello@reallygreatsite.com</p>
+                    <p class="contact-details">@reallygreatsite</p>
+                    <p class="contact-details">Visitez notre boutique de café dès aujourd'hui !</p>
+                </div>
+                <img src="/api/placeholder/300/200" alt="Tasse de café" class="contact-image">
             </div>
-        </section>
-    </main>
+        </div>
+    </footer>
+
+    <script>
+        // Code pour l'interactivité
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation au survol des produits pour montrer l'interactivité
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Effet de sélection simple
+                    this.style.outline = '3px solid var(--green)';
+                    setTimeout(() => {
+                        this.style.outline = 'none';
+                    }, 500);
+                });
+            });
+
+            // Affichage dynamique de la taille de l'écran
+            const viewportIndicator = document.querySelector('.viewport-indicator');
+            function updateViewportSize() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                
+                // Mise à jour de l'indicateur
+                if (width < 768) {
+                    viewportIndicator.innerHTML = `Mobile: ${width}x${height}px`;
+                } else if (width < 1024) {
+                    viewportIndicator.innerHTML = `Tablette: ${width}x${height}px`;
+                } else {
+                    viewportIndicator.innerHTML = `Desktop: ${width}x${height}px`;
+                }
+            }
+            
+            // Initialisation et mise à jour lors du redimensionnement
+            updateViewportSize();
+            window.addEventListener('resize', updateViewportSize);
+        });
+    </script>
 </body>
 </html>
