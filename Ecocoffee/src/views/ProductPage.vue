@@ -1,7 +1,9 @@
 <script>
 import HeaderSection from '@components/HeaderSection.vue';
 import HeroSection from '@components/HeroSection.vue';
+import ProductSearch from '@components/ProductSearch.vue';
 import ProductCard from '@components/ProductCard.vue';
+import ContactForm from '@components/ContactForm.vue';
 import FooterSection from '@components/FooterSection.vue';
 
 export default {
@@ -9,7 +11,9 @@ export default {
   components: {
     HeaderSection,
     HeroSection,
+    ProductSearch,
     ProductCard,
+    ContactForm,
     FooterSection
   },
   data() {
@@ -73,6 +77,7 @@ export default {
   <main lang="fr" aria-current="Nos produits">
     <HeaderSection />
     <HeroSection />
+    <ProductSearch />
     <section aria-labelledby="produits-titre">
       <h2 id="produits-titre">Nos produits :</h2>
       <ul>
@@ -86,6 +91,7 @@ export default {
         </li>
       </ul>
     </section>
+    <ContactForm />
     <FooterSection />
   </main>
 </template>

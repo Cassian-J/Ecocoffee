@@ -1,3 +1,9 @@
+<script>
+  export default {
+    name: "FooterSection",
+  };
+</script>
+
 <template>
     <footer>
       <section aria-labelledby="contact-titre">
@@ -24,10 +30,4 @@
       <p>© 2024 par Vraiment Super Site</p>
     </footer>
 </template>
-  
-<script>
-  export default {
-    name: "FooterSection",
-  };
-</script>
   

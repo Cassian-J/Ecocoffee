@@ -3,6 +3,7 @@ import HeaderSection from "@components/HeaderSection.vue";
 import HeroSection from '@components/HeroSection.vue';
 import ProductCard from "@components/ProductCard.vue";
 import TestimonialCard from "@components/TestimonialCard.vue";
+import ContactForm from '@components/ContactForm.vue';
 import FooterSection from "@components/FooterSection.vue";
 
 export default {
@@ -12,6 +13,7 @@ export default {
     HeroSection,
     ProductCard,
     TestimonialCard,
+    ContactForm,
     FooterSection,
   },
   data() {
@@ -88,7 +90,7 @@ export default {
       </p>
     </section>
     <section id="nos-cafes" aria-labelledby="produits-titre">
-      <img src="/images/before-products.jpg" alt="" aria-hidden = "true" role="img"/>
+      <img src="/images/before-products.jpg" alt="" aria-hidden="true" role="img"/>
       <h2 id="produits-titre">Nos produits phares :</h2>
       <ul>
         <li v-for="product in products" :key="product.name">
@@ -102,7 +104,7 @@ export default {
           />
         </li>
       </ul>
-      <img src="/images/separate.jpg" alt = "" aria-hidden = "true" role="img"/>
+      <img src="/images/separate.jpg" alt="" aria-hidden="true" role="img"/>
     </section>
     <section aria-labelledby="avis-titre">
       <h2 id="avis-titre">Avis clients :</h2>
@@ -119,6 +121,7 @@ export default {
         </li>
       </ul>
     </section>
+    <ContactForm />
     <FooterSection />
   </main>
 </template>

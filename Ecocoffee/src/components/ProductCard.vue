@@ -1,7 +1,7 @@
 <template>
   <article>
     <figure>
-      <img :src="image" alt=""  aria-hidden = "true" role="img" :width="width" :height="height" />
+      <img :src="image" alt="" aria-hidden = "true" role="img" :width="width" :height="height" />
       <figcaption>
         <h3>{{ name }}</h3>
         <p>{{ description }}</p>
