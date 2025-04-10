@@ -125,3 +125,65 @@ export default {
     <FooterSection />
   </main>
 </template>
+
+<style scoped>
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section[aria-labelledby="valeurs-titre"] {
+  padding: 2rem;
+  text-align: center;
+  background: var(--background-light);
+  margin: 2rem 0;
+}
+
+/* Nos produits phares */
+#nos-cafes {
+  padding: 3rem;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  overflow-x: auto; 
+}
+
+.product-list li {
+  margin-right: 2rem;
+  flex: 0 0 auto; 
+  width: 300px; 
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 1rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-list {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .product-list li {
+    margin-bottom: 2rem;
+    margin-right: 0;
+    width: 100%; 
+  }
+
+}
+</style>

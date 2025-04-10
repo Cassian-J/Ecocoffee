@@ -46,3 +46,43 @@ export default {
     </form>
   </section>
 </template>
+
+<style scoped>
+section {
+  padding: 2rem;
+  background: var(--background-light);
+}
+
+fieldset {
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+legend {
+  color: var(--primary-color);
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>

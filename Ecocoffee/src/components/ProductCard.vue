@@ -28,3 +28,36 @@
     },
   };
 </script>
+
+<style scoped>
+article {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.image-container {
+  width: 33%;
+  margin-bottom: 1rem;
+}
+
+img {
+  width: 33%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+h3 {
+  color: #2F4F4F;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+p {
+  color: #666;
+  font-size: 0.9rem;
+}
+</style>

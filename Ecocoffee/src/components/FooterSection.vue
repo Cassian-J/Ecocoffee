@@ -24,10 +24,45 @@
           <li><strong>Dimanche :</strong> Fermé</li>
         </ul>
       </section>
-      <figure>
-        <img src="/images/contact.jpg" alt="Intérieur d'un coffee shop" role="img"/>
-      </figure>
       <p>© 2024 par Vraiment Super Site</p>
     </footer>
 </template>
-  
+
+<style scoped>
+footer {
+  background-image: url('/images/contact.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  position: relative;
+  overflow: hidden; 
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
+}
+
+footer > * {
+  position: relative;
+  z-index: 2; 
+}
+
+address p {
+  margin: 0.5rem 0;
+}
+
+a {
+  color: #90EE90;
+}
+</style>

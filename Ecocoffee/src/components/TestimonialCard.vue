@@ -26,3 +26,36 @@
     },
   };
 </script>
+
+<style scoped>
+blockquote {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+blockquote:hover {
+  transform: translateY(-3px);
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+cite {
+  font-style: normal;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+img {
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+</style>

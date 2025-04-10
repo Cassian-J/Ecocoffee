@@ -95,3 +95,25 @@ export default {
     <FooterSection />
   </main>
 </template>
+
+<style scoped>
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  list-style: none;
+}
+
+@media (max-width: 480px) {
+  ul {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+</style>
