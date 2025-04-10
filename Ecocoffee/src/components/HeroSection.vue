@@ -11,10 +11,6 @@
         <p class="hero-tagline">Du café chaud et écolo !</p>
         <h1 class="hero-title">Ecocoffee</h1>
         <p class="hero-subtitle">Café issu du commerce équitable et écoresponsable !</p>
-        <a href="#nos-cafes" class="btn">
-          Nos Cafés
-          <span class="btn-icon">→</span>
-        </a>
       </div>
     </header>
 </template>
