@@ -7,11 +7,11 @@
 <template>
     <header class="hero">
       <div class="hero-overlay"></div>
-      <div class="hero-content">
+      <section class="hero-content">
         <p class="hero-tagline">Du café chaud et écolo !</p>
         <h1 class="hero-title">Ecocoffee</h1>
         <p class="hero-subtitle">Café issu du commerce équitable et écoresponsable !</p>
-      </div>
+      </section>
     </header>
 </template>
 
