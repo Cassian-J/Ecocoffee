@@ -39,7 +39,7 @@
 }
 
 .nav-links a {
-  color: #228b22;
+  color: #000000;
   text-decoration: none;
   font-weight: 500;
   display: block; 
@@ -48,7 +48,7 @@
 
 
 .nav-links li.active a {
-  border-bottom: 2px solid #228b22; 
+  border-bottom: 2px solid #000000; 
   font-weight: bold;
 }
 
@@ -57,6 +57,9 @@
   .nav-links {
     flex-direction: row; 
     justify-content: space-around;
+  }
+  .header{
+    background-color: #a1c18b;
   }
 }
 </style>

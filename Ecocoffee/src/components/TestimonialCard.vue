@@ -1,10 +1,12 @@
 <template>
   <blockquote>
-    <p>"{{ text }}"</p>
-    <footer>
-      <cite>{{ name }}</cite>
+    <section>
       <img :src="image" alt="" aria-hidden = "true" :width="width" :height="height" role="img" />
-    </footer>
+      <article>
+        <cite>{{ name }}</cite>
+        <p>"{{ text }}"</p>
+      </article>
+    </section>
   </blockquote>
 </template>
 
@@ -29,33 +31,68 @@
 
 <style scoped>
 blockquote {
-  background: white;
+  background: #684b38;
   padding: 1.5rem;
   border-radius: 8px;
   margin: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  color: white;
 }
 
 blockquote:hover {
   transform: translateY(-3px);
 }
 
-footer {
+section {
   display: flex;
-  align-items: center;
+  flex-direction: row; 
+  align-items: flex-start; 
   gap: 1rem;
-  margin-top: 1rem;
+  color: white;
+  width:100%;
+}
+
+img {
+  border-radius: 5%; 
+  border: 2px solid #000000; 
+  object-fit: cover; 
 }
 
 cite {
   font-style: normal;
-  color: var(--secondary-color);
-  font-weight: 500;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem; 
 }
 
-img {
-  border-radius: 50%;
-  border: 2px solid var(--primary-color);
+p {
+  font-size: 1rem;
+  margin: 0;
+  max-width: 400px; 
+  white-space: nowrap;
+}
+article{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+}
+
+@media screen and (max-width: 768px) {
+  
+  p{
+    font-size: 10px;
+    white-space: normal;
+  }
+  
+  article {
+    margin-top: 0;
+    align-items: center; 
+  }
+  cite{
+    
+    font-size: 15px;
+  }
 }
 </style>

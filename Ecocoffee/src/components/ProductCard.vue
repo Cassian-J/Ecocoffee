@@ -44,7 +44,7 @@ article {
 }
 
 img {
-  width: 33%;
+  width: 100%;
   height: auto;
   border-radius: 8px;
   object-fit: cover;
@@ -60,4 +60,10 @@ p {
   color: #666;
   font-size: 0.9rem;
 }
+@media screen and (max-width: 768px) {
+  h3{
+    color: #000000;
+  }
+}
+
 </style>
