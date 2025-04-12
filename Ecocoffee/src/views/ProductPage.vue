@@ -101,19 +101,48 @@ main {
   max-width: 1200px;
   margin: 0 auto;
 }
+section[aria-labelledby="produits-titre"]{
+  background: #eee3db;
+  padding:1rem;
+}
+h2#produits-titre {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
 
 ul {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr); 
   padding: 2rem;
   list-style: none;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
   ul {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* 2 produits par ligne sur tablette */
+  }
+}
+
+@media (max-width: 768px) {
+  section[aria-labelledby="produits-titre"]{
+    background: #a1c18b;
+  }
+  h2#produits-titre{
+    color: #000000;
+  }
+  ul {
+    grid-template-columns: 1fr; /* 1 produit par ligne sur mobile */
     padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  input,
+  select {
+    padding: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 </style>

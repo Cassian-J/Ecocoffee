@@ -30,6 +30,7 @@
 
 <style scoped>
 footer {
+  background: #000000;
   background-image: url('/images/contact.jpg');
   background-size: cover;
   background-position: center;

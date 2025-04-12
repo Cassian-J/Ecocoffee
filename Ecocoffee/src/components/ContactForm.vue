@@ -30,7 +30,8 @@
 
 <style scoped>
   section[aria-labelledby="contact-form-titre"]{
-    margin: 0 2rem 2rem 2rem;
+    padding:2rem;
+    background: var(--background-light);
   }
   section[aria-labelledby="contact-form-titre"] h2 {
     text-align: center;
@@ -103,7 +104,7 @@ button:active {
   section[aria-labelledby="contact-form-titre"]{
     background-color: #a1c18b;
     color: #000000;
-    margin: 0 2rem 2rem 2rem;
+    padding:2rem;
   }
   .contact-form {                                                                                                                                                                                                                                                            
     padding: 1.5rem;

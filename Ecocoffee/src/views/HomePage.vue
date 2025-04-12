@@ -182,7 +182,7 @@ section[aria-labelledby="valeurs-titre"] {
 
 /* Nos produits phares */
 #nos-cafes {
-  background-color:#eee3db;
+  background-color: #eee3db;
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -282,9 +282,6 @@ section[aria-labelledby="valeurs-titre"] {
   .decoration-valeur {
     width: 100%;
     height: auto;
-  }
-  main{
-    background:#a1c18b;
   }
 }
 @media screen and (min-width: 769px) {

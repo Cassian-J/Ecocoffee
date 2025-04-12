@@ -49,40 +49,82 @@ export default {
 
 <style scoped>
 section {
-  padding: 2rem;
+  padding:2rem;
   background: var(--background-light);
 }
 
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-style {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 fieldset {
-  border: 1px solid var(--primary-color);
+  border: 1px solid #000000;
   border-radius: 8px;
   padding: 1rem;
   margin: 1rem 0;
 }
 
-legend {
-  color: var(--primary-color);
-  font-weight: bold;
-  padding: 0 0.5rem;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin: 1rem 0;
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 600;
 }
 
 input, select {
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid var(--primary-color);
+  padding: 0.8rem;
+  border: 1px solid #ccc;
   border-radius: 4px;
+  background-color: white;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  height: 48px; /* Hauteur fixe */
+  box-sizing: border-box;
+}
+
+input:focus, select:focus {
+  border-color: #a1c18b;
+  outline: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media (max-width: 768px) {
-  .form-grid {
-    grid-template-columns: repeat(3, 1fr);
+  section {
+    background-color: #a1c18b;
+    color: #000000;
+  }
+
+  input,
+  select {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  input,
+  select {
+    padding: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 </style>
