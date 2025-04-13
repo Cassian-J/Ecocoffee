@@ -87,7 +87,7 @@ input, select {
   background-color: white;
   font-size: 1rem;
   transition: border-color 0.3s ease;
-  height: 48px; /* Hauteur fixe */
+  height: 48px;
   box-sizing: border-box;
 }
 

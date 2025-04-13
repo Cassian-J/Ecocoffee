@@ -1,5 +1,8 @@
 <template>
   <nav class="header">
+    <a href="#nos-cafes" class="skip-link" aria-label="Aller directement voir les produits">Aller aux produits</a>
+    <a href="#contact" class="skip-link" aria-label="Aller directement au formulaire de contact">Aller au formulaire de contact</a>
+
     <ul class="nav-links">
       <li :class="{ active: $route.path === '/' }">
         <router-link to="/" aria-current="page">Accueil</router-link>
@@ -12,12 +15,35 @@
 </template>
 
 <script>
-  export default {
-    name: 'HeaderSection'
-  }
+export default {
+  name: 'HeaderSection'
+}
 </script>
 
 <style scoped>
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 1000;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+}
+
 .header {
   background: #f8f8f8;
   padding: 1rem;
@@ -46,19 +72,17 @@
   padding: 0.5rem 1rem; 
 }
 
-
 .nav-links li.active a {
   border-bottom: 2px solid #000000; 
   font-weight: bold;
 }
-
 
 @media (max-width: 768px) {
   .nav-links {
     flex-direction: row; 
     justify-content: space-around;
   }
-  .header{
+  .header {
     background-color: #a1c18b;
   }
 }

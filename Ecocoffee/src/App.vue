@@ -9,7 +9,6 @@ export default {
 </template>
 
 <style>
-/* Styles globaux */
 :root {
   --primary-color: #228B22;
   --secondary-color: #2F4F4F;
@@ -36,7 +35,6 @@ body {
   }
 }
 
-/* Classes utilitaires globales */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

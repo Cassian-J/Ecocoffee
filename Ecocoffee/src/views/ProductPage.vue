@@ -74,11 +74,11 @@ export default {
 </script>
 
 <template>
-  <main lang="fr" aria-current="Nos produits">
+  <main aria-current="Nos produits">
     <HeaderSection />
     <HeroSection />
     <ProductSearch />
-    <section aria-labelledby="produits-titre">
+    <section id="nos-cafes" aria-labelledby="produits-titre">
       <h2 id="produits-titre">Nos produits :</h2>
       <ul>
         <li v-for="product in products" :key="product.name">
@@ -121,7 +121,7 @@ ul {
 
 @media (max-width: 1024px) {
   ul {
-    grid-template-columns: repeat(2, 1fr); /* 2 produits par ligne sur tablette */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -133,7 +133,7 @@ ul {
     color: #000000;
   }
   ul {
-    grid-template-columns: 1fr; /* 1 produit par ligne sur mobile */
+    grid-template-columns: 1fr;
     padding: 1rem;
   }
 }

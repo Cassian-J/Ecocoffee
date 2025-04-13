@@ -29,7 +29,7 @@ export default {
         this.emailError = "L'email est requis.";
         hasError = true;
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-        this.emailError = "L'adresse email n'est pas valide.";
+        this.emailError = "L'adresse email n'est pas valide. Il faut un format email@gmail.com";
         hasError = true;
       }
 
@@ -46,9 +46,8 @@ export default {
 };
 </script>
 
-
 <template>
-  <section aria-labelledby="contact-form-titre">
+  <section id="contact" aria-labelledby="contact-form-titre">
     <h2 id="contact-form-titre">Nous contacter</h2>
     <form action="#" method="POST" novalidate @submit.prevent="handleSubmit">
       <fieldset>
@@ -58,7 +57,7 @@ export default {
           type="text"
           id="name"
           name="name"
-          placeholder="Entrez votre nom"
+          placeholder="Entrez votre nom (Obligatoire)"
           required
           autocomplete="name"
           :aria-describedby="nameError ? 'name-error' : null"
@@ -68,7 +67,6 @@ export default {
           {{ nameError }}
         </span>
       </fieldset>
-
       <fieldset>
         <legend class="sr-only">Email</legend>
         <label for="email">Email :</label>
@@ -76,7 +74,7 @@ export default {
           type="email"
           id="email"
           name="email"
-          placeholder="Entrez votre email"
+          placeholder="Entrez votre email (Obligatoire)"
           required
           autocomplete="email"
           :aria-describedby="emailError ? 'email-error' : null"
@@ -86,14 +84,13 @@ export default {
           {{ emailError }}
         </span>
       </fieldset>
-
       <fieldset>
         <legend class="sr-only">Message</legend>
         <label for="message">Message :</label>
         <textarea
           id="message"
           name="message"
-          placeholder="Entrez votre message"
+          placeholder="Entrez votre message (Obligatoire)"
           required
           :aria-describedby="messageError ? 'message-error' : null"
           aria-invalid="messageError ? 'true' : 'false'"
@@ -102,7 +99,6 @@ export default {
           {{ messageError }}
         </span>
       </fieldset>
-
       <button type="submit">Envoyer</button>
     </form>
   </section>
@@ -186,7 +182,6 @@ button:active {
   font-size: 0.875rem;
 }
 
-/* Responsivité - Adaptation sur mobile */
 @media (max-width: 768px) {
   section[aria-labelledby="contact-form-titre"]{
     background-color: #a1c18b;

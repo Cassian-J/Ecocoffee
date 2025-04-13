@@ -70,7 +70,7 @@ export default {
 </script>
 
 <template>
-  <main lang="fr" aria-current="Accueil">
+  <main id="main-content" aria-current="Accueil">
     <HeaderSection />
     <HeroSection />
     <section class="valeur-et-engagement" aria-labelledby="valeurs-titre">
@@ -133,7 +133,6 @@ export default {
 </template>
 
 <style scoped>
-/*global part*/
 main {
   max-width: 1200px;
   margin: 0 auto;
