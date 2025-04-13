@@ -1,32 +1,113 @@
 <script>
-  export default {
-    name: "ContactForm",
-  };
+export default {
+  name: "ContactForm",
+  data() {
+    return {
+      nameError: "",
+      emailError: "",
+      messageError: "",
+    };
+  },
+  methods: {
+    handleSubmit() {
+      this.nameError = "";
+      this.emailError = "";
+      this.messageError = "";
+
+      let hasError = false;
+
+      const nameInput = this.$el.querySelector("#name");
+      const emailInput = this.$el.querySelector("#email");
+      const messageInput = this.$el.querySelector("#message");
+
+      if (!nameInput.value.trim()) {
+        this.nameError = "Le nom est requis.";
+        hasError = true;
+      }
+
+      if (!emailInput.value.trim()) {
+        this.emailError = "L'email est requis.";
+        hasError = true;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+        this.emailError = "L'adresse email n'est pas valide.";
+        hasError = true;
+      }
+
+      if (!messageInput.value.trim()) {
+        this.messageError = "Le message est requis.";
+        hasError = true;
+      }
+
+      if (!hasError) {
+        alert("Formulaire envoyé !");
+      }
+    },
+  },
+};
 </script>
 
+
 <template>
-    <section aria-labelledby="contact-form-titre">
-      <h2 id="contact-form-titre">Nous contacter</h2>
-      <form action="#" method="POST">
-        <fieldset>
-          <legend class="sr-only">Informations de contact</legend>
-          <label for="name">Nom :</label>
-          <input type="text" id="name" name="name" placeholder="Entrez votre nom" required autocomplete="name" aria-live="polite"/>
-        </fieldset>
-        <fieldset>
-          <legend class="sr-only">Email</legend>
-          <label for="email">Email :</label>
-          <input type="email" id="email" name="email" placeholder="Entrez votre email" required autocomplete="email" aria-live="polite"/>
-        </fieldset>
-        <fieldset>
-          <legend class="sr-only">Message</legend>
-          <label for="message">Message :</label>
-          <textarea id="message" name="message" placeholder="Entrez votre message" required aria-live="polite"></textarea>
-        </fieldset>
-        <button type="submit">Envoyer</button>
-      </form>
-    </section>
+  <section aria-labelledby="contact-form-titre">
+    <h2 id="contact-form-titre">Nous contacter</h2>
+    <form action="#" method="POST" novalidate @submit.prevent="handleSubmit">
+      <fieldset>
+        <legend class="sr-only">Informations de contact</legend>
+        <label for="name">Nom :</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Entrez votre nom"
+          required
+          autocomplete="name"
+          :aria-describedby="nameError ? 'name-error' : null"
+          aria-invalid="nameError ? 'true' : 'false'"
+        />
+        <span v-if="nameError" id="name-error" role="alert" class="error-message">
+          {{ nameError }}
+        </span>
+      </fieldset>
+
+      <fieldset>
+        <legend class="sr-only">Email</legend>
+        <label for="email">Email :</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Entrez votre email"
+          required
+          autocomplete="email"
+          :aria-describedby="emailError ? 'email-error' : null"
+          aria-invalid="emailError ? 'true' : 'false'"
+        />
+        <span v-if="emailError" id="email-error" role="alert" class="error-message">
+          {{ emailError }}
+        </span>
+      </fieldset>
+
+      <fieldset>
+        <legend class="sr-only">Message</legend>
+        <label for="message">Message :</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Entrez votre message"
+          required
+          :aria-describedby="messageError ? 'message-error' : null"
+          aria-invalid="messageError ? 'true' : 'false'"
+        ></textarea>
+        <span v-if="messageError" id="message-error" role="alert" class="error-message">
+          {{ messageError }}
+        </span>
+      </fieldset>
+
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
 </template>
+
 
 <style scoped>
   section[aria-labelledby="contact-form-titre"]{
@@ -97,6 +178,12 @@ button:hover {
 
 button:active {
   background-color: #7d9e3c;
+}
+
+.error-message {
+  color: red;
+  margin-top: 0.3rem;
+  font-size: 0.875rem;
 }
 
 /* Responsivité - Adaptation sur mobile */

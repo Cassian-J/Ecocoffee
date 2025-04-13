@@ -24,7 +24,7 @@
           <li><strong>Dimanche :</strong> Fermé</li>
         </ul>
       </section>
-      <p>© 2024 par Vraiment Super Site</p>
+      <p>© 2025 Ecocoffee</p>
     </footer>
 </template>
 
