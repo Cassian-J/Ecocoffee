@@ -52,12 +52,12 @@ export default {
     <form action="#" method="POST" novalidate @submit.prevent="handleSubmit">
       <fieldset>
         <legend class="sr-only">Informations de contact</legend>
-        <label for="name">Nom :</label>
+        <label for="name">Nom (Obligatoire) :</label>
         <input
           type="text"
           id="name"
           name="name"
-          placeholder="Entrez votre nom (Obligatoire)"
+          placeholder="Entrez votre nom"
           required
           autocomplete="name"
           :aria-describedby="nameError ? 'name-error' : null"
@@ -69,7 +69,7 @@ export default {
       </fieldset>
       <fieldset>
         <legend class="sr-only">Email</legend>
-        <label for="email">Email :</label>
+        <label for="email">Email (Obligatoire) :</label>
         <input
           type="email"
           id="email"
@@ -86,11 +86,11 @@ export default {
       </fieldset>
       <fieldset>
         <legend class="sr-only">Message</legend>
-        <label for="message">Message :</label>
+        <label for="message">Message (Obligatoire) :</label>
         <textarea
           id="message"
           name="message"
-          placeholder="Entrez votre message (Obligatoire)"
+          placeholder="Entrez votre message"
           required
           :aria-describedby="messageError ? 'message-error' : null"
           aria-invalid="messageError ? 'true' : 'false'"
