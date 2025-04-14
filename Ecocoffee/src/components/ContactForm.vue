@@ -177,9 +177,10 @@ button:active {
 }
 
 .error-message {
-  color: red;
+  color: rgb(165, 39, 39);
+  font-weight: bold;
   margin-top: 0.3rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 @media (max-width: 768px) {
