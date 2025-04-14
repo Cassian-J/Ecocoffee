@@ -10,7 +10,6 @@ export default {
     <form aria-labelledby="search-form-legend">
       <fieldset>
         <legend id="search-form-legend">Rechercher un produit</legend>
-
         <label for="search-input">Rechercher par nom</label>
         <input 
           type="text" 

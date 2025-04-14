@@ -52,12 +52,12 @@ export default {
     <form action="#" method="POST" novalidate @submit.prevent="handleSubmit">
       <fieldset>
         <legend class="sr-only">Informations de contact</legend>
-        <label for="name">Nom (Obligatoire) :</label>
+        <label for="name">Prénom et nom (Obligatoire) :</label>
         <input
           type="text"
           id="name"
           name="name"
-          placeholder="Entrez votre nom"
+          placeholder="Entrez votre prénom et votre nom (ex : Gauthier Chicorée)"
           required
           autocomplete="name"
           :aria-describedby="nameError ? 'name-error' : null"
@@ -74,7 +74,7 @@ export default {
           type="email"
           id="email"
           name="email"
-          placeholder="Entrez votre email (Obligatoire)"
+          placeholder="Entrez votre email (ex : email@gmail.com)"
           required
           autocomplete="email"
           :aria-describedby="emailError ? 'email-error' : null"
